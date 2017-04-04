@@ -1,0 +1,11 @@
+version: '2'
+services:
+  db:
+    build: ./build/mysql
+    ports:
+     - 3306:3306
+    volumes:
+     - ./build/mysql/sql:/docker-entrypoint-initdb.d
+     - ./tmp/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
